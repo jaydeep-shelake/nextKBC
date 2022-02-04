@@ -53,7 +53,7 @@ export default function Home() {
          <Message amount={amountEraned} show={timeStop} setShow={setTimeStop}/>
       <main className={style.main}>
         {
-          userName?(
+          !userName?(
              <>
               <div className={style.questions}>
            <div className={style.topSec}>
