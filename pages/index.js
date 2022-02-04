@@ -80,7 +80,7 @@ export default function Home() {
              {
                money.slice(0).reverse().map((amount,i)=>(
                  <React.Fragment key={i}>
-                <li key={i} className={queNo===amount.id&& style.active}> 
+                <li key={i} className={queNo===amount.id?style.active:'list'}> 
                   <span>{amount.id}</span> <span>{amount.amount}</span>
                   </li>
                   </React.Fragment>
