@@ -1,0 +1,46 @@
+.blackScreen {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.514);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+}
+.blackScreen.show {
+  visibility: visible;
+  opacity: 1;
+}
+.box {
+  width: 330px;
+  height: 300px;
+  background: #020230;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.box h4 {
+  color: #bba14f;
+}
+.box h2 {
+  color: #fff;
+}
+.box h2 span {
+  color: #bba14f;
+  font-weight: bold;
+}
+.box button {
+  border: none;
+  outline: none;
+  padding: 10px 15px;
+  background: #bba14f;
+  color: #fff;
+  margin-top: 10px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
