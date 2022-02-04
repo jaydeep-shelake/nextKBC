@@ -11,18 +11,36 @@ export default function Home() {
   const [userName,setUserName]=useState(null)
   const [amountEraned,setAmountEarned]=useState('0')
   const [fiftyFity,setFity]=useState(false)
-
+ const [showFifty,setShowFity]=useState(false)
   
   const inputRef=useRef(null)
   const money= useMemo(()=>
-  ["5,000","10,000","20,000","40,000","80,000","1,60,000","3,20,000","6,40,000","12,80,000","25,00,000","50,00,000","1 Crore","3 Crore"," 7 Crore"]
+  [{ id: 1, amount: "₹ 1000" },
+  { id: 2, amount: "₹ 2000" },
+  { id: 3, amount: "₹ 3000" },
+  { id: 4, amount: "₹ 5000" },
+  { id: 5, amount: "₹ 10,000" },
+  { id: 6, amount: "₹ 20,000" },
+  { id: 7, amount: "₹ 40,000" },
+  { id: 8, amount: "₹ 80,000" },
+  { id: 9, amount: "₹ 1,00,000" },
+  { id: 10, amount: "₹ 3,20,000" },
+  { id: 11, amount: "₹ 6,40,000" },
+  { id: 12, amount: "₹ 12,50,000" },
+  { id: 13, amount: "₹ 25,00,000" },
+  { id: 14, amount: "₹ 50,00,000" },
+  { id: 15, amount: "₹ 1,00,00,000" },]
  ,[])
   useEffect(()=>{
-    queNo>1 && setAmountEarned(money.find((amt,i)=>(money.length-i)-1))
+    if(queNo>1){
+      setAmountEarned(money.find((m) => m.id === queNo - 1).amount)
+    }
   },[money,queNo])
+  console.log(amountEraned)
 
   const selectFiftyFity=()=>{
   setFity(true)
+  setShowFity(true)
   }
   return (
 
@@ -42,7 +60,7 @@ export default function Home() {
             <Image src={logo} width={100} height={110}/>
             <div className={style.lifeLine}>
               <p>Life lines: </p>
-              {fiftyFity?(<div className={`${style.icon} ${style.iconDis}`}>
+              {showFifty?(<div className={`${style.icon} ${style.iconDis}`}>
                  50/50
                  <div className={style.line}></div>
               </div>):(<div className={style.icon} onClick={selectFiftyFity}>
@@ -62,8 +80,8 @@ export default function Home() {
              {
                money.slice(0).reverse().map((amount,i)=>(
                  <React.Fragment key={i}>
-                <li key={i} className={queNo===money.length-i&& style.active}> 
-                  <span>{i+1}</span> <span>₹ {amount}</span>
+                <li key={i} className={queNo===amount.id&& style.active}> 
+                  <span>{amount.id}</span> <span>{amount.amount}</span>
                   </li>
                   </React.Fragment>
                ))
