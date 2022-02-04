@@ -1,11 +1,11 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, { useEffect ,useState} from 'react';
 import style from '../styles/Main.module.css'
-const Timmer = ({setTimeStop,queNo}) => {
+const Timmer = ({setTimeStop,queNo,wrongAns}) => {
     const [timer ,setTimer]=useState(30)
     
     useEffect(()=>{
         if(timer===0) {
+          wrongAns()
             return setTimeStop(true)
         }
         const id = setInterval(()=>{
