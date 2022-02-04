@@ -9,9 +9,9 @@ const Quiz = ({setTimeStop, setQuNo,queNo,fiftyFity,setFity}) => {
    const correct='/correct.mp3'
    const wait = '/wait.mp3'
    const wrong ='/wrong.mp3'
-    const [que,setQue]=useState()
-    const [selectedAns,setSelectedAns]=useState()
-    const [currentcClass,setCurrentClass]=useState()
+    const [que,setQue]=useState(null)
+    const [selectedAns,setSelectedAns]=useState(null)
+    const [currentcClass,setCurrentClass]=useState(null)
     const [playGame]=useSound(play)
     const [correctAns]=useSound(correct)
     const [wrongAns]=useSound(wrong)
