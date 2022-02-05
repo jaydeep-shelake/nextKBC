@@ -12,24 +12,25 @@ export default function Home() {
   const [amountEraned,setAmountEarned]=useState('0')
   const [fiftyFity,setFity]=useState(false)
  const [showFifty,setShowFity]=useState(false)
-  
+ const [swip,setSwip]=useState(false)
+const [showSwip,setShowSwip]=useState(false)
   const inputRef=useRef(null)
   const money= useMemo(()=>
-  [{ id: 1, amount: "₹ 1000" },
-  { id: 2, amount: "₹ 2000" },
-  { id: 3, amount: "₹ 3000" },
-  { id: 4, amount: "₹ 5000" },
-  { id: 5, amount: "₹ 10,000" },
-  { id: 6, amount: "₹ 20,000" },
+  [{ id: 1, amount: "₹ 5000" },
+  { id: 2, amount: "₹ 10,000" },
+  { id: 3, amount: "₹ 20,000" },
+  { id: 4, amount: "₹ 40,000" },
+  { id: 5, amount: "₹ 80,000" },
+  { id: 6, amount: "₹ 1,60,000" },
   { id: 7, amount: "₹ 40,000" },
-  { id: 8, amount: "₹ 80,000" },
-  { id: 9, amount: "₹ 1,00,000" },
-  { id: 10, amount: "₹ 3,20,000" },
-  { id: 11, amount: "₹ 6,40,000" },
-  { id: 12, amount: "₹ 12,50,000" },
-  { id: 13, amount: "₹ 25,00,000" },
-  { id: 14, amount: "₹ 50,00,000" },
-  { id: 15, amount: "₹ 1,00,00,000" },]
+  { id: 8, amount: "₹ 3,20,000" },
+  { id: 9, amount: "₹ 6,40,000" },
+  { id: 10, amount: "₹ 12,50,000" },
+  { id: 11, amount: "₹ 25 Lakh" },
+  { id: 12, amount: "₹ 50 Lakh" },
+  { id: 13, amount: "₹ 1 Crore" },
+  { id: 14, amount: "₹ 3 Crore" },
+  { id: 15, amount: "₹ 7 Crore" },]
  ,[])
   useEffect(()=>{
     if(queNo>1){
@@ -41,6 +42,10 @@ export default function Home() {
   const selectFiftyFity=()=>{
   setFity(true)
   setShowFity(true)
+  }
+  const selectSwip=()=>{
+    setSwip(true)
+    setShowSwip(true)
   }
   return (
 
@@ -67,13 +72,20 @@ export default function Home() {
                 50/50
               </div>)}
               
-              <div className={style.icon}>
-                <Image src="https://cdn-icons-png.flaticon.com/512/6386/6386588.png" alt="" width={30} height={30}/>
+              {showSwip?(<div className={`${style.icon} ${style.iconDis}`} >
+                Swip
+                <div className={style.line}></div>
 
-              </div>
+              </div>):(
+                <div  className={style.icon} onClick={selectSwip}>
+                    Swip
+                </div>
+              )}
             </div>
            </div>
-            <Quiz setTimeStop={setTimeStop} setQuNo={setQuNo} queNo={queNo} fiftyFity={fiftyFity} setFity={setFity}/>
+            <Quiz setTimeStop={setTimeStop} setQuNo={setQuNo} queNo={queNo} fiftyFity={fiftyFity} setFity={setFity}
+            swip={swip} setSwip={setSwip}
+            />
          </div>
          <div className={style.money}>
            <ul className={style.moneyList}>
