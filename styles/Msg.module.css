@@ -8,6 +8,7 @@
   justify-content: center;
   visibility: hidden;
   opacity: 0;
+  z-index: 999;
 }
 .blackScreen.show {
   visibility: visible;

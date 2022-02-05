@@ -3,7 +3,8 @@ module.exports = {
   images:{
     domains:[
         "cdn-icons-png.flaticon.com",
-               
+        "img.icons8.com",
+        "digiflixtv.com"   
     ]
 }
 }

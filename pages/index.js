@@ -14,6 +14,7 @@ export default function Home() {
  const [showFifty,setShowFity]=useState(false)
  const [swip,setSwip]=useState(false)
 const [showSwip,setShowSwip]=useState(false)
+const [showMoney,setShowMoney]=useState(false)
   const inputRef=useRef(null)
   const money= useMemo(()=>
   [{ id: 1, amount: "₹ 5000" },
@@ -56,13 +57,16 @@ const [showSwip,setShowSwip]=useState(false)
         <link rel="icon" href="/favicon.ico" />
       </Head>
          <Message amount={amountEraned} show={timeStop} setShow={setTimeStop}/>
+         <div className={style.menu} onClick={()=>setShowMoney(true)}>
+           <Image src={"https://img.icons8.com/external-tal-revivo-tritone-tal-revivo/72/external-horizontal-separated-bars-representing-hamburger-menu-layout-grid-tritone-tal-revivo.png"} width={30} height={30}/>
+         </div>
       <main className={style.main}>
         {
           userName?(
              <>
               <div className={style.questions}>
            <div className={style.topSec}>
-            <Image src={logo} width={100} height={110}/>
+            <Image className={style.logo} src={logo} width={100} height={110}/>
             <div className={style.lifeLine}>
               <p>Life lines: </p>
               {showFifty?(<div className={`${style.icon} ${style.iconDis}`}>
@@ -87,7 +91,14 @@ const [showSwip,setShowSwip]=useState(false)
             swip={swip} setSwip={setSwip}
             />
          </div>
-         <div className={style.money}>
+         <div className={`${style.money} ${showMoney&& style.showMoney}`}>
+           <div className={style.close} onClick={()=>setShowMoney(false)}>
+             <Image
+             src={"https://digiflixtv.com/assets/web/svg/hamburger-close.svg"}
+             width={30}
+             height={30}
+             />
+           </div>
            <ul className={style.moneyList}>
              {
                money.slice(0).reverse().map((amount,i)=>(
